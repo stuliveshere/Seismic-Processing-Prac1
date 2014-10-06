@@ -34,21 +34,21 @@ def transmission_coefficient(z0, z1):
 #-----------------------------------------------------------------------
 
 @io
-def build_reflector(workspace, **params):
+def build_reflector(dataset, **kwargs):
 	'''
 	builds reflector
 	'''
 	
 	#some shortcuts
-	vp = params['model']['model']['vp']
-	rho = params['model']['model']['rho']
-	R = params['model']['model']['R']
-	sz = params['sz']
-	gz = params['gz']
-	sx = params['sx']
+	vp = kwargs['model']['model']['vp']
+	rho = kwargs['model']['model']['rho']
+	R = kwargs['model']['model']['R']
+	sz = kwargs['sz']
+	gz = kwargs['gz']
+	sx = kwargs['sx']
 	
 	numpoints = 100 #used for interpolating through the model
-	for gx in workspace['gx']:
+	for gx in dataset['gx']:
 		#calculate nearest midpoint
 		#calculate h, the half-offset
 		#the next line extracts the non-zero reflection points at this midpoint
@@ -90,8 +90,8 @@ def build_reflector(workspace, **params):
 
 			#convert to coordinates
 
-			#update workspace
-	return workspace
+			#update dataset
+	return dataset
 
 
 	

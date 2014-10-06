@@ -28,15 +28,15 @@ def refract(x, v0, v1, z0):
 #-----------------------------------------------------------------------
 
 @io
-def build_refractor(workspace, **params):
+def build_refractor(dataset, **kwargs):
 	'''
 	builds refractor
 	'''
 	
 	#some shortcuts
-	v0 = params['model']['vp'][0]
-	v1 = params['model']['vp'][1]
-	z0 = params['model']['dz'][0]
+	v0 = kwargs['model']['vp'][0]
+	v1 = kwargs['model']['vp'][1]
+	z0 = kwargs['model']['dz'][0]
 	
 	#calculate refraction times
 
@@ -53,9 +53,9 @@ def build_refractor(workspace, **params):
 
 	#convert to array coordinates
 
-	#add to workspace
+	#add to dataset
 	
-	#return workspace
+	#return dataset
 
 
 	

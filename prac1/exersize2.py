@@ -15,10 +15,14 @@ from exersize1 import initialise
 #              useful functions
 #-----------------------------------------------------------------------
 def diverge(distance, coefficient=3.0):
-	#spherical divergence correction
+	'''spherical divergence calculation'''
+	weights = None
+	return weights
 	
-	#return result
-	pass
+def direct(distance, velocity):
+	'''direct time calculation'''
+	time = None
+	return time
 
 	
 #-----------------------------------------------------------------------
@@ -26,7 +30,7 @@ def diverge(distance, coefficient=3.0):
 #-----------------------------------------------------------------------
 
 @io
-def build_direct(workspace, **params):
+def build_direct(dataset, **kwargs):
 	'''
 	calculates direct wave arrival time and 
 	imposes it upon an array. assumes 330 m/s
@@ -45,9 +49,9 @@ def build_direct(workspace, **params):
 
 	#convert to coordinates
 
-	#add to workspace
+	#add to dataset
 	
-	#return workspace
+	#return dataset
 	pass
 
 

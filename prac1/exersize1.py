@@ -1,17 +1,15 @@
 from toolbox import io
 import toolbox
 import numpy as np
-import matplotlib.pyplot as pylab
-import sys
 
 #-----------------------------------------------------------------------
 #              useful functions
 #-----------------------------------------------------------------------
 
 @io
-def spike(workspace, **params):
-	#add a spike to the workspace
-	return workspace
+def spike(dataset, **kwargs):
+	#add a spike to the dataset
+	return dataset
 
 #-----------------------------------------------------------------------
 #              main functions
