@@ -8,9 +8,7 @@ from exersize5 import build_combined, add_noise, convolve_wavelet
 if __name__ == "__main__":
 	#initialise workspace, parameter file
 	
-	#define output file
-	output = np.zeros(0, dtype=param['sutype'])
-	
+
 	#iterate over shot points
 	for sx in param['sx_coords']:
 		print sx
@@ -21,7 +19,7 @@ if __name__ == "__main__":
 		#add the noise
 		#add to output
 	
-#write to output		
-	toolbox.cp(output, 'survey.su', **param)
+		#write to output		
+		toolbox.cp(workspace, 'shot%d.su' %sx, **param)
 		
 		
