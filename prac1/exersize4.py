@@ -18,107 +18,101 @@ from exersize2 import diverge
 #-----------------------------------------------------------------------
 
 def reflection_coefficient(z0, z1):
-	#calculate reflection coefficient
-	
-	#return coefficient
-	pass
+    '''calculate zero-offset reflection coefficient'''
+
+    return
 
 def transmission_coefficient(z0, z1):
-	#calculate transmission coefficient
-	
-	#return coefficient
-	pass
-	
+    '''calculate zero-offset transmission coefficient'''
+
+    return 
+
 #-----------------------------------------------------------------------
 #              main functions
 #-----------------------------------------------------------------------
 
 @io
 def build_reflector(dataset, **kwargs):
-	'''
-	builds reflector
-	'''
-	
-	#some shortcuts
-	vp = kwargs['model']['model']['vp']
-	rho = kwargs['model']['model']['rho']
-	R = kwargs['model']['model']['R']
-	sz = kwargs['sz']
-	gz = kwargs['gz']
-	sx = kwargs['sx']
-	
-	numpoints = 100 #used for interpolating through the model
-	for gx in dataset['gx']:
-		#calculate nearest midpoint
-		#calculate h, the half-offset
-		#the next line extracts the non-zero reflection points at this midpoint
-		#and iterates over them
-		for cmpz in (np.nonzero(R[cmpx,:])[0]):
-			ds = np.sqrt(cmpz**2 + (h)**2)/float(numpoints) # line step distance
-			#predefine outputs
-			amp = 1.0
-			time = 0.0
+        '''
+        builds reflector
+        '''
+        
+        #some shortcuts
+        vp = kwargs['model']['vp']
+        rho = kwargs['model']['rho']
+        R = kwargs['model']['R']
+        sz = kwargs['sz']
+        gz = kwargs['gz']
+        sx = kwargs['sx']
+        gx = kwargs['gx']
+        
+        numpoints = 100 #used for interpolating through the model
+        for g in  gx:
+                cmpx = np.floor((g + sx)/2.).astype(np.int) # nearest midpoint
+                h = cmpx - sx #half offset
+                #the next line extracts the non-zero reflection points at this midpoint
+                rp = np.nonzero(R[cmpx,:])[0]
+                #and iterates over them
+                for cmpz in (rp):
+                        #~ print cmpx, cmpz
+                        ds = np.sqrt(cmpz**2 + (h)**2)/float(numpoints) # line step distance
+                        #predefine outputs
+                        amp = 1.0
+                        time = 0.0
 
-			#traveltime from source to cdp
-			vp_down = toolbox.find_points(sx, sz, cmpx, cmpz, numpoints, vp)
-			#update time
+                        #traveltime from source to cdp
+                        vp_down = toolbox.find_points(sx, sz, cmpx, cmpz, numpoints, vp)
+                        time += 0
 
-			#traveltime from cdp to geophone
-			vp_up = toolbox.find_points(cmpx, cmpz, gx-1, gz, numpoints, vp)
-			#update time
+                        #traveltime from cdp to geophone
+                        vp_up = toolbox.find_points(cmpx, cmpz, g, gz, numpoints, vp)
+                        time += 0
 
-			#loss due to spherical divergence
-			#calculate divergence
-			#update amplitude
+                        #loss due to spherical divergence
+                        amp *= 0
 
-			#~ #transmission losses from source to cdp
-			rho_down = toolbox.find_points(sx, sz, cmpx, cmpz, numpoints, rho)
-			z0s = rho_down * vp_down
-			z1s = toolbox.roll(z0s, 1)
-			correction = np.cumprod(transmission_coefficient(z0s, z1s) )[-1] 
-			#update amps
+                        #transmission losses from source to cdp
+                        rho_down = toolbox.find_points(sx, sz, cmpx, cmpz, numpoints, rho)
+                        z0s = rho_down * vp_down
+                        z1s = toolbox.roll(z0s, 1)
+                        correction = np.cumprod(transmission_coefficient(z0s, z1s) )[-1] 
+                        amp *= 0
+                        #amplitude loss at reflection point
+                        correction = R[cmpx,cmpz]
+                        amp *= 0
+                        #transmission loss from cdp to source
+                        rho_up = toolbox.find_points(cmpx, cmpz, g, gz, numpoints, rho)
+                        z0s = rho_up * vp_up
+                        z1s = toolbox.roll(z0s, 1)
+                        correction = np.cumprod(transmission_coefficient(z0s, z1s))[-1]
+                        amp *= 0
 
-			#amplitude loss at reflection point
-			correction = R[cmpx,cmpz]
-			#update amps
-			#transmission loss from cdp to source
-			rho_up = toolbox.find_points(cmpx, cmpz, gx-1, gz, numpoints, rho)
-			z0s = rho_up * vp_up
-			z1s = toolbox.roll(z0s, 1)
-			correction = np.cumprod(transmission_coefficient(z0s, z1s))[-1]
-			#update amps
-
-			#convert to coordinates
-
-			#update dataset
-	return dataset
+                        #calculate coordinates
+                        
+                        #write out data
+                        
+        return 
 
 
-	
+        
 if __name__ == '__main__':
-	#initialise workspace
-	
-	#define a temporary shot location
-	
-	#update the workspace and parameter file with 
-	#shot location, offset and absolute offset
+        #initialise
 
-	#build the reflected wave
-	
-	#add an agc
-	
-	#view it with agc
-	
-	pass
+        
+        #build reflector
 
-		
+        #display
+        pass
 
-		
-		
-	
-	
-	
 
-	
-	
-	
+                
+
+                
+                
+        
+        
+        
+
+        
+        
+        

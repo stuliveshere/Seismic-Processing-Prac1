@@ -8,48 +8,56 @@ import numpy as np
 
 @io
 def spike(dataset, **kwargs):
-	#add a spike to the dataset
-	return dataset
+        '''add spike to dataset'''
+        pass
+
 
 #-----------------------------------------------------------------------
 #              main functions
 #-----------------------------------------------------------------------
 
-def initialise():
-	#allocate parameter dictionary
+def initialise(filename='model.png'):
+        #initialise parameter dictionary
 
-	#build our model, which is pre-defined in the toolbox
+        #build our model, which is pre-defined in the toolbox
 
-	#have a look at it - it has a build in display routine
-	
-	#initialise data workspace
 
-	#define survey geometry, ie shot and reciever points
-	
-	#add some more useful stuff
+        #add some useful stuff
 
-	#return workspace and parameter dictionary
-	pass
-	
+        
+        #initialise data workspace
+
+        
+        #define survey geometry, ie shot and reciever points
+
+        
+        #add some more useful stuff
+
+        
+        #return workspace and parameters
+        return 
+        
 if __name__ == '__main__':
-	#initialise the project
+        #initialise
 
-	#add something to the workspace so we have something to look at
+        #have a look at it - it has a build in display routine
 
-	#display the workspace
+        #add spikes
 
-	pass
-	
-
-		
+        #display
+        pass
 
 
-		
-		
-	
-	
-	
 
-	
-	
-	
+                
+
+
+                
+                
+        
+        
+        
+
+        
+        
+        

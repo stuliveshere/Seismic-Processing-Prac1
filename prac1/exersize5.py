@@ -13,39 +13,34 @@ from exersize4 import build_reflector
 
 @io
 def build_combined(dataset, **kwargs):
-	dataset = build_direct(dataset, None, **kwargs)
-	dataset = build_refractor(dataset, None, **kwargs)
-	dataset = build_reflector(dataset, None, **kwargs)
-	return dataset
-	
+        dataset = build_direct(dataset, None, **kwargs)
+        dataset = build_refractor(dataset, None, **kwargs)
+        dataset = build_reflector(dataset, None, **kwargs)
+        return dataset
+        
 @io
 def add_noise(dataset, **kwargs):
-	noise = np.random.normal(0.0, 1e-8, size=(dataset['trace'].shape))
-	#add noise to the dataset
-	return dataset
-	
+        noise = np.random.normal(0.0, 1e-8, size=(dataset.shape))
+        dataset += noise
+        return dataset
+        
 @io
 def convolve_wavelet(dataset, **kwargs):
-	wavelet = toolbox.ricker(60)	
-	dataset =  toolbox.conv(dataset, wavelet)
-	return dataset
+        wavelet = toolbox.ricker(60)	
+        dataset =  toolbox.conv(dataset, wavelet)
+        return dataset
 
 if __name__ == '__main__':
-	#initialise workspace
-	
-	#define a temporary shot location
-	
-	#update the workspace and parameter file with 
-	#shot location, offset and absolute offset
+        #initialise
 
-	#build the shot record
-	
-	#convolve in the wavelet
-	
-	#add noise
-	
-	#add an agc
-	
-	#view it with agc
-	
-	pass
+        #build record
+
+        
+        #add wavelet
+
+        
+        #add noise
+
+        
+        #display
+        pass

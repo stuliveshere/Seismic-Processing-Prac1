@@ -10,7 +10,7 @@ import toolbox
 import numpy as np
 import matplotlib.pyplot as pylab
 from exersize1 import initialise
-from exersize2 import diverge
+from exersize2 import diverge, build_direct
 
 
 #-----------------------------------------------------------------------
@@ -18,71 +18,65 @@ from exersize2 import diverge
 #-----------------------------------------------------------------------
 
 def refract(x, v0, v1, z0):
-	#refraction time calculation
-	
-	#return time
-	pass
-	
+        '''calculates refracted wave traveltime'''
+
+        return 
+        
 #-----------------------------------------------------------------------
 #              main functions
 #-----------------------------------------------------------------------
 
 @io
 def build_refractor(dataset, **kwargs):
-	'''
-	builds refractor
-	'''
-	
-	#some shortcuts
-	v0 = kwargs['model']['vp'][0]
-	v1 = kwargs['model']['vp'][1]
-	z0 = kwargs['model']['dz'][0]
-	
-	#calculate refraction times
+        '''
+        builds refractor
+        '''
+        
+        #extract the base of weathering from the model
 
-	#create amplitude array
-	
-	#calculate the spherical divergence correction
-	
-	#apply correction and remove nans
+        
+        #extract v0 and v1
 
-	#it probably wont exceed 1s, but to make it look right we 
-	#need to limit it so that it doesnt cross over the direct
-	#recalculate direct times
-	#filter 
-
-	#convert to array coordinates
-
-	#add to dataset
-	
-	#return dataset
+        #calculate refraction travel times
 
 
-	
+        #create amplitude array
+
+        #calculate the spherical divergence correction
+
+        #apply correction
+
+
+        #it probably wont exceed 1s, but to make it look right we 
+        #need to limit it so that it doesnt cross over the direct
+
+
+        #convert coordinates to integers
+
+        #write values to array
+
+        return 
+
+
+        
 if __name__ == '__main__':
-	#initialise workspace
-	
-	#define a temporary shot location
-	
-	#update the workspace and parameter file with 
-	#shot location, offset and absolute offset
+        #initialise
+        
+        
+        #build refractor
+        
+        #display
+        
+        pass
 
-	#build the refracted wave
-	
-	#add an agc
-	
-	#view it with agc
-	
-	pass
+                
 
-		
+                
+                
+        
+        
+        
 
-		
-		
-	
-	
-	
-
-	
-	
-	
+        
+        
+        

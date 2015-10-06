@@ -15,74 +15,73 @@ from exersize1 import initialise
 #              useful functions
 #-----------------------------------------------------------------------
 def diverge(distance, coefficient=3.0):
-	'''spherical divergence calculation'''
-	weights = None
-	return weights
-	
-def direct(distance, velocity):
-	'''direct time calculation'''
-	time = None
-	return time
+        '''spherical divergence correction''' 
 
-	
+        return 
+        
+def direct(distance, velocity):
+        '''calculates the direct ray travel time'''
+
+        return
+
+        
 #-----------------------------------------------------------------------
 #              main functions
 #-----------------------------------------------------------------------
 
 @io
 def build_direct(dataset, **kwargs):
-	'''
-	calculates direct wave arrival time and 
-	imposes it upon an array. assumes 330 m/s
-	surface velocity
-	'''
-	
-	#define velocity and calculate direct times
-	
-	#set base amplitude (from testing)
-	
-	#calculate the spherical divergence correction
-	
-	#apply correction and remove nans
-	
-	#we are not interested in anything after 1 second
+        '''
+        calculates direct wave arrival time and 
+        imposes it upon an array. assumes 330 m/s
+        surface velocity
+        '''
+        
+        #speed of the direct wave
+        
+        #calculate direct travel times
+        
+        #set base amplitude (from testing)
 
-	#convert to coordinates
+        #calculate the spherical divergence correction
 
-	#add to dataset
-	
-	#return dataset
-	pass
+        #apply correction
 
 
-	
+        
+        #we are not interested in anything after 1 second
+
+        
+        
+
+        #convert to coordinates
+        # milliseconds
+
+        
+
+        return 
+
+
+        
 if __name__ == '__main__':
-	#initialise workspace
-	
-	#define a temporary shot location
-	
-	#update the workspace and parameter file with 
-	#shot location, offset and absolute offset
+        #initialise
+        
+        
+        #lets set up for calculating direct wave
+        
+        
+        #and display
+        pass
+        
 
-	#build the direct wave
-	
-	#view the direct wave
-	
-	#add an agc
-	
-	#view it with agc
-	
-	pass
+                
 
+                
+                
+        
+        
+        
 
-		
-
-		
-		
-	
-	
-	
-
-	
-	
-	
+        
+        
+        
